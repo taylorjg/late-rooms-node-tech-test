@@ -1,9 +1,11 @@
 const configureService = (searchService, detailsService) => {
 
-  const getTerm = term => {
-    const ids = searchService.invoke(term)
-    const details = ids.map(id => detailsService.invoke(Number(id)))
-    const formattedDetails = details.map(formatDetails)
+  const getTerm = async term => {
+    const ids = await searchService.invoke(term)
+    const promises = ids.map(id => detailsService.invoke(Number(id)))
+    const details = await Promise.all(promises)
+    const flattenedDetails = flatten(details)
+    const formattedDetails = flattenedDetails.map(formatDetails)
     return formattedDetails
   }
 
@@ -11,6 +13,8 @@ const configureService = (searchService, detailsService) => {
     getTerm
   }
 }
+
+const flatten = xss => [].concat(...xss)
 
 const formatDetails = ({ id, type, text }) => ({
   id: String(id),

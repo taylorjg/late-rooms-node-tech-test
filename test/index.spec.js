@@ -12,7 +12,7 @@ describe('service tests', () => {
   //  - detailsEndpoint causes an error
   //  - detailsEndpoint fails to lookup id
 
-  it('given example', () => {
+  it('given example', async () => {
     const searchService = {
       invoke: term => {
         switch (term) {
@@ -43,7 +43,7 @@ describe('service tests', () => {
       }
     }
     const service = configureService(searchService, detailsService)
-    const actual = service.getTerm('example')
+    const actual = await service.getTerm('example')
     const expected =
       [{
         id: "16296355",

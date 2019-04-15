@@ -4,6 +4,7 @@
   "description": "This is my attempt at the The LateRooms Group Node task",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "mocha ./test",
     "eslint": "eslint ."
   },

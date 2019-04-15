@@ -5,9 +5,9 @@ const configureApi = (searchService, detailsService) => {
 
   const service = configureService(searchService, detailsService)
 
-  const getTerm = (req, res) => {
+  const getTerm = async (req, res) => {
     const { term } = req.params
-    const result = service.getTerm(term)
+    const result = await service.getTerm(term)
     res.json(result)
   }
 
