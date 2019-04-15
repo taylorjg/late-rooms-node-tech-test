@@ -1,9 +1,6 @@
 const express = require('express')
-const configureService = require('./service')
 
-const configureApi = (searchService, detailsService) => {
-
-  const service = configureService(searchService, detailsService)
+const configureApi = service => {
 
   const getTerm = async (req, res) => {
     const { term } = req.params
