@@ -1,37 +1,27 @@
-// searchEndpoint
-// http://lr-node-kata.herokuapp.com/search/{term}
-// => 
-// [
-//   "16296360",
-//   "11492793",
-//   "16845998",
-//   "16837690",
-//   "16293369"
-// ]
-//
-// detailsEndpoint
-// http://lr-node-kata.herokuapp.com/details/?id={id}
-// => 
-// [
-//   {
-//   "id": 16296360,
-//   "type": "k",
-//   "count": 43,
-//   "text": "Manfield"
-//   }
-// ]
-
-const configureService = (searchEndpoint, detailsEndpoint) => {
+const configureService = (searchService, detailsService) => {
 
   const getTerm = term => {
-    return {
-      message: `Hello ${term}`
-    }
+    const ids = searchService.invoke(term)
+    const details = ids.map(id => detailsService.invoke(Number(id)))
+    const formattedDetails = details.map(formatDetails)
+    return formattedDetails
   }
 
   return {
     getTerm
   }
 }
+
+const formatDetails = ({ id, type, text }) => ({
+  id: String(id),
+  url: makeUrl(type, id, text),
+  text
+})
+
+const makeUrl = (type, id, text) =>
+  `${type}${id}_${cleanText(text)}`
+
+const cleanText = text =>
+  text.toLowerCase().replace(/[^\w]/g, '-')
 
 module.exports = configureService
