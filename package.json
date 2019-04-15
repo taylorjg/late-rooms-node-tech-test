@@ -4,7 +4,7 @@
   "description": "This is my attempt at the The LateRooms Group Node task",
   "main": "index.js",
   "scripts": {
-    "test": "mocha .",
+    "test": "mocha ./test",
     "eslint": "eslint ."
   },
   "author": "Jonathan Taylor",
