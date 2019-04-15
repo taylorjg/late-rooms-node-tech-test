@@ -4,11 +4,16 @@
   "description": "This is my attempt at the The LateRooms Group Node task",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha .",
+    "eslint": "eslint ."
   },
   "author": "Jonathan Taylor",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "express": "^4.16.4",
+    "mocha": "^6.1.3"
   }
 }
