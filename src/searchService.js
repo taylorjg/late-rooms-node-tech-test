@@ -1,8 +1,15 @@
 const axios = require('axios')
 
-module.exports = {
-  invoke: async term => {
-    const { data } = await axios.get(`http://lr-node-kata.herokuapp.com/search/${term}`)
-    return data
+const configureSearchService = baseURL => {
+
+  const axiosInstance = axios.create({ baseURL })
+
+  return {
+    invoke: async term => {
+      const { data } = await axiosInstance.get(`/search/${term}`)
+      return data
+    }
   }
 }
+
+module.exports = configureSearchService

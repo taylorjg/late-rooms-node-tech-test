@@ -1,13 +1,20 @@
 const axios = require('axios')
 
-module.exports = {
-  invoke: async id => {
-    const config = {
-      params: {
-        id
+const configureDetailsService = baseURL => {
+
+  const axiosInstance = axios.create({ baseURL })
+
+  return {
+    invoke: async ids => {
+      const config = {
+        params: {
+          id: ids
+        }
       }
+      const { data } = await axiosInstance.get(`/details`, config)
+      return data
     }
-    const { data } = await axios.get('http://lr-node-kata.herokuapp.com/details', config)
-    return data
   }
 }
+
+module.exports = configureDetailsService
