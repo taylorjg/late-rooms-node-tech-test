@@ -1,0 +1,14 @@
+{
+  "name": "late-rooms-node-tech-test",
+  "version": "1.0.0",
+  "description": "This is my attempt at the The LateRooms Group Node task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jonathan Taylor",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
