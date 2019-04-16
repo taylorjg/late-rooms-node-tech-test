@@ -13,3 +13,4 @@ This is my attempt at the [The LateRooms Group Node task](https://github.com/Lat
     * errors in detailsService
     * id(s) not found in detailsService
 * Integration Tests
+* Logging
