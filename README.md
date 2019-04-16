@@ -4,13 +4,13 @@ This is my attempt at the [The LateRooms Group Node task](https://github.com/Lat
 
 ## TODO
 
-* Unit Tests
-  * add tests re invalid terms
-    * too short (< 3)
-    * non-alphanumeric
-  * error handling
-    * errors in searchService
-    * errors in detailsService
-    * id(s) not found in detailsService
-* Integration Tests
-* Logging
+* Add more unit tests
+  * Add tests re invalid terms
+    * Too short (length less than 3)
+    * Non-alphanumeric
+  * Add tests re error handling
+    * Errors in searchService
+    * Errors in detailsService
+    * Id(s) not found in detailsService
+* ~~Add integration tests~~
+* Add logging
