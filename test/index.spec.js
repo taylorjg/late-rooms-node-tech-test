@@ -1,5 +1,5 @@
 const expect = require('chai').expect
-const configureService = require('../src/service')
+const configureTermService = require('../src/termService')
 
 const MOCK_RECORDS = [
   {
@@ -31,20 +31,10 @@ const detailsServiceMock = {
     .map(id => MOCK_RECORDS.find(record => record.id === id))
 }
 
-describe('service tests', () => {
-
-  // TODO: add tests:
-  // - invalid term
-  //  - too short
-  //  - non-alphanumerics
-  // - error handling
-  //  - searchEndpoint causes an error
-  //  - detailsEndpoint causes an error
-  //  - detailsEndpoint fails to lookup id
-
+describe('temrService tests', () => {
   it('given example', async () => {
-    const service = configureService(searchServiceMock, detailsServiceMock)
-    const actual = await service.getTerm('example')
+    const termService = configureTermService(searchServiceMock, detailsServiceMock)
+    const actual = await termService.getTerm('example')
     const expected =
       [{
         id: "16296355",

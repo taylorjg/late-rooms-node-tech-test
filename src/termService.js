@@ -1,4 +1,4 @@
-const configureService = (searchService, detailsService) => {
+const configureTermService = (searchService, detailsService) => {
 
   const getTerm = async term => {
     const ids = await searchService.invoke(term)
@@ -23,4 +23,4 @@ const makeUrl = (type, id, text) =>
 const cleanText = text =>
   text.toLowerCase().replace(/[^\w]/g, '-')
 
-module.exports = configureService
+module.exports = configureTermService

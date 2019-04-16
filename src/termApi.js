@@ -1,6 +1,6 @@
 const express = require('express')
 
-const configureApi = service => {
+const configureTermApi = service => {
 
   const getTerm = async (req, res) => {
     const { term } = req.params
@@ -14,4 +14,4 @@ const configureApi = service => {
   return router
 }
 
-module.exports = configureApi
+module.exports = configureTermApi
